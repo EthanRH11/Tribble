@@ -2,16 +2,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "C/C++ Runner: Debug Session",
+      "name": "WSL2 Debug",
       "type": "cppdbg",
       "request": "launch",
+      "program": "${workspaceFolder}/program",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "c:/Users/dckru/OneDrive/Desktop/Project S-F",
-      "program": "c:/Users/dckru/OneDrive/Desktop/Project S-F/build/Debug/outDebug",
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",

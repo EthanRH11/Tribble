@@ -1,0 +1,91 @@
+**************************************************
+       Steps to commit changes to github
+**************************************************
+
+-Ensure, you are currently within the working directory
+Step 1:
+-run: git status
+    git status:
+        new files
+        modified files
+        staged files
+Step 2:
+-run: git add .
+    git add (.):
+        the dot specifies that all files in the folder will be committed
+    git add filename.cpp:
+        this will only commit the specified filename
+Step 3:
+-run: git commit -m "Commit message"
+    git commit -m:
+        this will commit any modified files
+Step 4:
+-run: git pull origin main --rebase
+    git pull origin main --rebase:
+        will pull modified code from github
+Step 5:
+-run: git push origin main
+    git push origin main:
+        sends changes to the main branch
+
+**************************************************
+        Extra Commands that may be helpful
+**************************************************
+
+-running: git log
+    git log:
+        show all commits with their messages, times, and author
+-running: git reset <file>
+    git reset:
+        unstage the file, but changes will remain
+-running: git checkout -- <file>
+    git checkout -- <file>
+        this will restore the file to its last committed state
+-running: git checkout -b <branch_name>
+    git checkout -b <branch_name>:
+        this creates and switches to a new branch
+-running: git branch   
+    git branch:
+        to list all branches
+-running: git checkout <branch_name>
+    git checkout <branch_name>:
+        switches between branches
+-running: git tag -a v1.0 -m "Version 1.0"
+    git tage -a v1.0 -m "Version 1.0"
+        this creates a tag on specific points
+
+**************************************************
+        Ming64 Important Commands
+************************************************** 
+-Compiling a Single file    
+    g++ -o outputfile main.cpp:
+        g++: the compiler command for C++ code
+        -o outputfile: This option specifies the name of the output file (the executable). Replace outputfile with your desired name for the compiled program
+        main.cpp: the C++ source file you want to compiled
+-Compiling Multiple C++ files 
+    g++ -o myprogram main.cpp file1.cpp file2.cpp:
+        this compiles main.cpp, file1.cpp, file2.cpp into the executable myprogram.executable
+-Compiling with Debugging information:
+    g++ -g -o myprogram main.cpp
+        this will include debugging symbols which can be used with a debugger
+-Compiling with optimization
+    If you're ready to optimize your program for performance, use the -O option followed by the level of optimization (0 to 3):
+    g++ -O2 -o myprogram main.cpp:
+        -O2: optimizes the code with a good balance between speed and size
+        -O3: maximize optimizations, which may increase both speed and size
+-Linking Object files   
+    g++ -c main.cpp file1.cpp:
+        this will create a main.o and file1.o files
+    next:
+    g++ -o myprogram main.o file1.O
+        this produces the final executable
+-Running with gdb
+    g++ -g -o myprogram main.cpp:
+        gdb ./myprogram:
+            runs code through GNU debugger
+-Checking for memory leaks
+    vlagrind ./myprogram
+-Final Commands
+    ./outputfile.exe
+    or:
+    outputfile.exe

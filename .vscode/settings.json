@@ -69,5 +69,8 @@
     "type_traits": "cpp",
     "variant": "cpp",
     "new": "cpp"
-  }
+  },
+  "lldb.showDisassembly": "auto",
+  "lldb.dereferencePointers": true,
+  "lldb.consoleMode": "commands"
 }
