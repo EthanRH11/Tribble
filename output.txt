@@ -9,19 +9,17 @@ Unknown command: Weird unsure why LOL TODO:
 Unknown command: Weird unsure why LOL TODO:
 Unknown command: Weird unsure why LOL TODO:
 Unknown command: Weird unsure why LOL TODO:
-Unknown command: Weird unsure why LOL TODO:
-Unknown command: Weird unsure why LOL TODO:
 start func(){
-I x = 5;
-D y = 6.4;
-F z = 3.4;
-C a = 'a';
-S b = "Hello my name is Ethan";
+I x = 5 ;
+D y = 6.4 ;
+F z = 3.4 ;
+C a = 'a' ;
+S b = "Hello my name is Ethan" ;
 
-D c = y + z;
-out.to.console(x);
-out.to.console(c);
-out.to.console(a);
-out.to.console(b);
-}
+D c = y + z ;
+out.to.console(x );
+out.to.console(c) ;
+out.to.console(a) ;
+out.to.console(b) ;
+END}
 
