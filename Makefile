@@ -1,26 +1,30 @@
-#Compiler and Flags
-CXX = g++
+# Compiler and Flags
+CXX = g++ 
 CXXFLAGS = -Wall -g -std=c++17
-#Source Files and object files
-#Must add any new .cpp files to this list
+
+# Source Files and Object Files
 SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
-#Header Files
-#Not necessary to add more hpp files, but good for documentaion
+
+# Header Files
 HEADERS = $(wildcard *.hpp)
-#Output executable
+
+# Output executable
 TARGET = program
-#Default target: compile the program
+
+# Default target: compile the program
 all: program
-#Rule to build the program and run valgrind
-program: $(TARGET)
-	valgrind --leak-check=full ./$(TARGET)
-#Rule to build the executable
-$(TARGET): $(OBJS)
+
+# Rule to build the program and run valgrind
+program: $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
-#Rule to build the object files
-%.o: %.cpp $(HEADERS)
-	$(CXX) $(CXXFLAGS) -c $<
-#Clean up intermediate files
-clean: 
-	del -f $(OBJS) $(TARGET)
+	valgrind --leak-check=full ./$(TARGET)
+
+# Target to compile and run program with Tribble.txt as input and output to output.txt
+interperter: $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRCS)  # Compile the main.cpp and other sources
+	./$(TARGET) Tribble.txt output.txt          # Run the program and redirect output
+
+# Clean up intermediate files
+clean:
+	rm -f $(OBJS) $(TARGET)

@@ -25,12 +25,14 @@ public:
     String substr(int, int) const;          // sub from staring to ending position
     int findch(int, char) const;            // Location of charater starting at position
     int findstr(int, const String &) const; // Location of string starting at a position
-
+    bool isEmpty() const;                   // Returns true if string is empty
+    const char* c_str() const;              // Provides read-only-access to the underlying character array
     friend std::ostream &operator<<(std::ostream &, const String &);
     friend std::istream &operator>>(std::istream &, String &);
 
     std::vector<String> split(char) const;
-
+    String trim(char) const;
+    char charAt(size_t) const;
 private:
     char *str;      // Pointer to char[]
     int stringSize; // Size includes NULL terminator

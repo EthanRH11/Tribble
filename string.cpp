@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cassert>
 #include <vector>
+#include<cctype>
 #include "string.hpp"
 //***********************************************//
 
@@ -313,4 +314,35 @@ std::vector<String> String::split(char ch) const
     }
 
     return result;
+}
+//*******************************************************************//
+bool String::isEmpty() const {
+    return stringSize == 0;
+}
+//*******************************************************************//
+const char* String::c_str() const{
+    return str;
+}
+
+String String::trim(char trimChar) const{
+        size_t start = 0;
+        size_t end = this->length() - 1;
+
+
+        while(start <= end && this->str[start] == trimChar) {
+            ++start;
+        }
+
+        
+        while(end >= start && this->str[end] == trimChar){
+            --end;
+        }   
+        return this->substr(start, end-start + 1);
+    }
+
+char String::charAt(size_t index) const{
+    if(index >= this->length()){
+        throw std::out_of_range("Index out of range");
+    }
+    return this->str[index];
 }

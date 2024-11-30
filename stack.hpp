@@ -1,14 +1,16 @@
 #ifndef STACK_HPP
 #define STACK_HPP
+#include<cassert>
+#include<iostream>
+#include<cctype>
 
 template <typename T>
 class Node
 {
 public:
-    Node() : next(0) {}
-    Node(const T &val) : data(val), next(0) {}
+    Node() : next(nullptr) {}
+    Node(const T &val) : data(val), next(nullptr) {}
 
-private:
     T data;
     Node<T> *next;
 };
@@ -37,20 +39,33 @@ private:
 template <typename T>
 Stack<T>::~Stack()
 {
-    Node<T> *temp = tos;
-    while (temp != 0)
-    {
-        temp = temp->next;
+    Node<T>* temp = tos;
+    while(temp != nullptr){
+        Node<T>* nextNode = temp->next;
         delete temp;
-        temp = tos;
+        temp = nextNode;
     }
 }
 template <typename T>
 Stack<T>::Stack(const Stack<T> &copy)
 {
-    Node<T> *bottom;
-    Node<T> *temp = copy.tos;
+    tos = nullptr;
+    Node<T>* newNode = nullptr;
+    Node<T>* last = nullptr;
+    Node<T>* temp = copy.tos;
+
+    while(temp != nullptr){
+        newNode = new Node<T>(temp->data);
+        if(tos == nullptr){
+            tos = newNode;
+        } else {
+            last->next = newNode;
+        }
+        last = newNode;
+        temp = temp->next;
+    }
 }
+
 template <typename T>
 Stack<T> &Stack<T>::operator=(Stack<T> rhs)
 {
@@ -85,11 +100,18 @@ T Stack<T>::pop()
 template <typename T>
 T Stack<T>::top() const
 {
+    assert(!isEmpty());
     return tos->data;
 }
 template <typename T>
 void Stack<T>::display(const Stack<T> &)
 {
+    Node<T>* temp = tos;
+    while(temp != nullptr){
+        std::cout << temp->data << " ";
+        temp = temp->next;
+    }
+    std::cout << std::endl;
 }
 template <typename T>
 bool Stack<T>::isEmpty() const
