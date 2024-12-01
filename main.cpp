@@ -42,16 +42,12 @@
 
 int main() {
     String input("1234.455");
-    String input2("34");
 
-    Parser newParser(input2);
     Parser parser(input);
-    NumericLiteral result = parser.program();
-    NumericLiteral result2 = newParser.program();
 
-    std::cout << "Type: " << result.type << "\n";
-    std::cout << "Value: " << result.value << "\n";
+    Program prog = parser.program();
 
-    std::cout << "Type 2: " << result2.type << "\n";
-    std::cout << "Value 2: " << result2.value << "\n";
+    std::cout << "Program Type: " << prog.type << "\n";
+    std::cout << "Body Type: " << prog.body.type << "\n";
+    std::cout << "Body Value: " << prog.body.value << "\n";
 }
